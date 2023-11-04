@@ -103,7 +103,7 @@ The program produces the following outputs as logs on the console and writes to 
 
 The program is implemented using `Scala` and utilizes `Spark/GraphX` for parallel processing and graph analysis. Detailed implementation information can be found in the source code.
 
-There are 4 files in the project:
+There are 6 files in the project:
 
 `Main.Scala`:  It contains the main entry point for the Man-In-The-Middle Attack Simulation program. It imports necessary libraries and initializes Spark configuration and context. The program processes input graphs, generates random walks, and calculates Jaccard similarity indices to simulate insider attacks within an organization's network. It leverages the Jaccard Index to compare nodes between the original and perturbed graphs. The comparison results are logged and used to calculate algorithm statistics. The file demonstrates the core logic for the attack simulation, showcasing how the program evaluates potential attacks while considering the similarity between nodes in different graphs.
 
