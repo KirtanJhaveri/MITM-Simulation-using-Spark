@@ -22,7 +22,7 @@ object FinalStatsCalc{
         response.body.replaceAll("\t", "  ")
       } else {
         // Handle HTTP error, e.g., log the error
-        println(s"Failed to fetch YAML from $yamlPath. HTTP Status: ${response.code}")
+        logger.error(s"Failed to fetch YAML from $yamlPath. HTTP Status: ${response.code}")
         ""
       }
     } catch {
@@ -113,12 +113,12 @@ object FinalStatsCalc{
     //    logger.info(s"Invaluable Data Nodes: $noAttackPerformed")
     // Print the results
 
-    println(s"Min nodes in a random walk: $minSize")
-    println(s"Max nodes in a random walk: $maxSize")
-    println(s"Mean number of nodes in a random walk: $meanSize")
-    println(s"Median number of nodes in a random walk: $medianSize")
-    println(s"Successful Attacks: $successfulAttack")
-    println(s"Failed Attacks: $failedAttack")
+//    println(s"Min nodes in a random walk: $minSize")
+//    println(s"Max nodes in a random walk: $maxSize")
+//    println(s"Mean number of nodes in a random walk: $meanSize")
+//    println(s"Median number of nodes in a random walk: $medianSize")
+//    println(s"Successful Attacks: $successfulAttack")
+//    println(s"Failed Attacks: $failedAttack")
     val writer = new PrintWriter(outputFilePath)
     writer.println(s"Successful Attacks: $successfulAttack")
     writer.println(s"Failed Attacks: $failedAttack")
@@ -131,7 +131,6 @@ object FinalStatsCalc{
 //    writer.println(s"Invaluable Data Nodes: $noAttackPerformed")
     writer.close()
 
-//    println(s"Invaluable Data Nodes: $noAttackPerformed")
   }
 }
 

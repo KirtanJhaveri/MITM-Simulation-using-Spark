@@ -22,13 +22,13 @@ object SimScoreCalc{
       val intersection = Set(attr1).intersect(Set(attr2))
       val union = Set(attr1).union(Set(attr2))
       val jaccardIndex = jaccardSimilarity(intersection, union)
-//      println(s"Attr1: $attr1, Attr2: $attr2, Intersection: $intersection, Union: $union, Jaccard Index: $jaccardIndex")
+
       jaccardIndex
     }
 
     // Calculate the average Jaccard index for all attributes
     val averageJaccardIndex = jaccardIndices.sum / jaccardIndices.size.toDouble
-//    println(s"Average Jaccard Index: $averageJaccardIndex")
+
     averageJaccardIndex
 
   }

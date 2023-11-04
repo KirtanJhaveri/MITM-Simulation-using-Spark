@@ -1,8 +1,8 @@
-Successful Attacks: 36
-Failed Attacks: 0
+Successful Attacks: 141
+Failed Attacks: 12
 Min nodes in a random walk: 1
 Max nodes in a random walk: 4
-Mean number of nodes in a random walk: 1.9867549668874172
+Mean number of nodes in a random walk: 2.081081081081081
 Median number of nodes in a random walk: 1.0
-Successful Attacks: 36
-Failed Attacks: 0
+Successful Attacks: 141
+Failed Attacks: 12

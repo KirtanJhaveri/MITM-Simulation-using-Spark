@@ -1,19 +1,11 @@
-//import NetGraphAlgebraDefs.Action
-import NetGraphAlgebraDefs.Action
 import org.apache.spark.graphx.{Graph, VertexId}
 
 import scala.annotation.tailrec
 import scala.util.Random
-//import NetGraphAlgebraDefs.NetModelAlgebra.{actionType, outputDirectory}
-//import scala.concurrent.duration.'
-//import "src/main/scala/PreProcessor"
-//import org.apache.spark.SparkConf
-//import org.apache.spark.SparkContext
-//import org.apache.spark.graphx._
-//import org.apache.spark.sql.SparkSession
+import org.slf4j.{Logger, LoggerFactory}
 
-
-object  RandomWalkGenerator{
+object RandomWalkGenerator {
+  private val logger: Logger = LoggerFactory.getLogger(getClass)
   def randomWalks(graph: Graph[NodeObject, String], startNodes: List[VertexId], maxSteps: Int): List[List[VertexId]] = {
     def randomWalkForNode(startNode: VertexId, visited: Set[VertexId]): List[VertexId] = {
       def randomNeighbor(node: VertexId, visited: Set[VertexId]): Option[VertexId] = {
@@ -40,21 +32,20 @@ object  RandomWalkGenerator{
     var randomPaths: List[List[VertexId]] = List()
 
     // Perform random walks for each start node
-    for (startNode <- startNodes) {
+    startNodes.foreach { startNode =>
       if (visitedNodes.contains(startNode)) {
-//        val path1 = List.empty // Creating an empty list of appropriate type
-        randomPaths = randomPaths // Adding path1 to randomPaths
-      }
-      else {
+        // val path1 = List.empty // Creating an empty list of appropriate type
+        logger.info(s"Skipping random walk for already visited node: $startNode")
+//        randomPaths = randomPaths // Adding path1 to randomPaths
+      } else {
         val path = randomWalkForNode(startNode, visitedNodes)
         visitedNodes ++= path
-        //        println("visitedNodes:")
-        //        println(visitedNodes)
+        // println("visitedNodes:")
+        // println(visitedNodes)
+//        logger.info(s"Random walk path for node $startNode: ${path.mkString(" -> ")}")
         randomPaths = randomPaths :+ path
       }
-
     }
-
     randomPaths
 
   }
