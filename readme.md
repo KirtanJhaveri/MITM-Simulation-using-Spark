@@ -4,7 +4,7 @@
 - NetID: kjhave3@uic.edu
 - Name: Kirtan Jhaveri
 - youtube video:  
-  https://youtu.be/dCiyx5tVfjE
+  https://www.youtube.com/watch?v=SuSEvcrSB4k
 
 
 ## Table of Contents
@@ -74,21 +74,30 @@ Please provide the .ngs , the .ngs.perturbed, the .ngs.yaml files as input to th
 eg: inputGraphs/300_nodes.ngs `  
 The Main invocation file is:  
 `Main.scala`  
-The code takes in 3 arguments in the run configuration(in intellij), below are the arguments set in my run config please change them according to path on your system **(Note: This Project uses the local filesystem NOT HDFS)**:
+The code takes in 4 arguments in the run configuration(in intellij), below are the arguments set in my run config please change them according to path on your system **(Note: This Project uses the local filesystem NOT HDFS)**:
 
 **Using intellij run config**:
 
 `PATH_TO\inputGraphs\300_nodes.ngs.perturbed`  
 `PATH_TO\inputGraphs\300_nodes.ngs`  
 `PATH_TO\inputGraphs\300_nodes.ngs.yaml`
+`PATH_TO\outputs\stats.txt`
 
 **Using SBT**:
 
 `SBT "run PATH_TO\inputGraphs\300_nodes.ngs.perturbed PATH_TO\inputGraphs\300_nodes.ngs PATH_TO\inputGraphs\300_nodes.ngs.yamlPATH_TO\inputGraphs\300_nodes.ngs.yaml"`
 
+**Using Spark-Submit**:
+
+`spark-submit --class Main --master local[4] --class Main --jars C:\Users\kirta\Desktop\CS441\MITM-Simulation-using-Spark\target\sca
+la-2.13\mitm1.jar --driver-class-path C:\Users\kirta\Desktop\CS441\MITM-Simulation-using-Spark\target\scala-2.13\mitm1.jar C:\Users\kirta\Desktop\CS
+441\MITM-Simulation-using-Spark\target\scala-2.13\mitm1.jar C:\Users\kirta\Desktop\CS441\MITM-Simulation-using-Spark\inputGraphs\300_nodes.ngs.pertu
+rbed C:\Users\kirta\Desktop\CS441\MITM-Simulation-using-Spark\inputGraphs\300_nodes.ngs C:\Users\kirta\Desktop\CS441\MITM-Simulation-using-Spark\inputGraphs\300_nodes.ngs.yaml C:\Users\kirta\Desktop\CS441\MITM-Simulation-using-Spark\outputs\stats.txt`
+
+
 ## Output
 
-The program produces the following outputs as logs on the console and writes to file stats.txt:
+The program produces the following outputs as logs on the console and writes to file stats.txt
 
 ## Implementation Details
 
@@ -122,14 +131,6 @@ Flow of the code:
 
 ```mermaid  
 graph TD
-    style A fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style B fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style C fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style D fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style E fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style F fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style G fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
-    style H fill:#9fe1e7,stroke:#4f4e4e,stroke-width:2px;
 
     A[Main] -->|Loads Graph| B(PreProcessor)
     B -->|Preprocesses Graph| C(RandomWalkGenerator)
@@ -141,8 +142,9 @@ graph TD
 
 ```
 # Dependencies:
-- [Apache Spark Core](https://spark.apache.org/) (version 3.2.4)
-- [Apache Spark GraphX](https://spark.apache.org/graphx/) (version 3.2.4)
-- [Apache Spark SQL](https://spark.apache.org/sql/) (version 3.2.4)
+- [Apache Spark Core](https://spark.apache.org/) (version 3.4.1)
+- [Apache Spark GraphX](https://spark.apache.org/graphx/) (version 3.4.1)
+- [Apache Spark SQL](https://spark.apache.org/sql/) (version 3.4.1)
 - [Google Guava](https://github.com/google/guava) (version 31.1-jre)
 - [SnakeYAML](https://bitbucket.org/asomov/snakeyaml/) (version 1.29)
+- jdk 1.8(Java 8)
