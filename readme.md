@@ -1,8 +1,6 @@
 
 
 # MITM-Simulation-Using-Spark
-- NetID: kjhave3@uic.edu
-- Name: Kirtan Jhaveri
 - youtube video:  
   https://www.youtube.com/watch?v=SuSEvcrSB4k
 
