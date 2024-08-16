@@ -141,7 +141,6 @@ graph TD
 # Dependencies:
 - [Apache Spark Core](https://spark.apache.org/) (version 3.4.1)
 - [Apache Spark GraphX](https://spark.apache.org/graphx/) (version 3.4.1)
-- [Apache Spark SQL](https://spark.apache.org/sql/) (version 3.4.1)
 - [Google Guava](https://github.com/google/guava) (version 31.1-jre)
 - [SnakeYAML](https://bitbucket.org/asomov/snakeyaml/) (version 1.29)
 - jdk 1.8(Java 8)
